@@ -8,6 +8,12 @@ import {Component} from '@angular/core';
 export class AppComponent {
   content = '...this will be replaced...';
 
+  text = 'hello';
+
+  updateText(event) {
+    this.text = event.target.value;
+  }
+
   compileStringToAngularAndInsert(template: string) {
     this.content = template;
   }

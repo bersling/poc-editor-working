@@ -11,36 +11,37 @@
 </p>
 
 <h3>
-  bla
+  Gap
 </h3>
 
 <div>
-  <pre class="angular-string">&lt;app-bla&gt;hello&lt;/app-bla&gt;</pre>
+  <pre class="angular-string">&lt;app-gap text="{{text}}" (onChange)="updateText($event)"&gt;&lt;/app-gap&gt;</pre>
   <p>
     will yield:
   </p>
   <div>
-    <app-bla>hello</app-bla>
+    <app-gap [text]="text" (onChange)="updateText($event)"></app-gap>
   </div>
 </div>
 
-<h3>blub</h3>
+
+<h3>The Task</h3>
 <div>
   
-  <pre class="angular-string">&lt;app-blub title="some title"&gt;world&lt;/app-blub&gt;</pre>
+  <pre class="angular-string">&lt;app-task title="some title"&gt;world&lt;/app-task&gt;</pre>
   <p>
     will yield
   </p>
-  <app-blub title="some title">world</app-blub>
+  <app-task title="some title">world</app-task>
 </div>
 
 <h3>Mixing the components</h3>
 <p>
   The components can be mixed:
 </p>
-<pre class="angular-string">&lt;app-blub title="some title"&gt;bla &lt;app-bla&gt;hello&lt;/app-bla&gt; bla&lt;/app-blub&gt;</pre>
+<pre class="angular-string">&lt;app-task title="some title"&gt;bla &lt;app-gap&gt;hello&lt;/app-gap&gt; bla&lt;/app-task&gt;</pre>
 should yield
-<app-blub title="some title">bla <app-bla>hello</app-bla> bla</app-blub>
+<app-task title="some title">bla <app-gap text="hello"></app-gap> bla</app-task>
 
 <h2>
   Goal: Dynamically compile a string to "Angular"
