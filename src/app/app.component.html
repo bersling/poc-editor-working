@@ -1,0 +1,78 @@
+<h1>Rendering XML strings to Angular</h1>
+
+<p>
+  <b>Goal:</b> Rendering any XML strings containing <b>known</b> components to Angular!
+</p>
+
+<h2>Predefined Components</h2>
+
+<p>
+  There are <b>two</b> components available for this example app.
+</p>
+
+<h3>
+  bla
+</h3>
+
+<div>
+  <pre class="angular-string">&lt;app-bla&gt;hello&lt;/app-bla&gt;</pre>
+  <p>
+    will yield:
+  </p>
+  <div>
+    <app-bla>hello</app-bla>
+  </div>
+</div>
+
+<h3>blub</h3>
+<div>
+  
+  <pre class="angular-string">&lt;app-blub title="some title"&gt;world&lt;/app-blub&gt;</pre>
+  <p>
+    will yield
+  </p>
+  <app-blub title="some title">world</app-blub>
+</div>
+
+<h3>Mixing the components</h3>
+<p>
+  The components can be mixed:
+</p>
+<pre class="angular-string">&lt;app-blub title="some title"&gt;bla &lt;app-bla&gt;hello&lt;/app-bla&gt; bla&lt;/app-blub&gt;</pre>
+should yield
+<app-blub title="some title">bla <app-bla>hello</app-bla> bla</app-blub>
+
+<h2>
+  Goal: Dynamically compile a string to "Angular"
+</h2>
+
+<p>
+  Let's assume now the Angular application doesn't know at startup in which combinations the components will occur.
+  I need a way to compile such dynamic compositions of components.
+</p>
+<p>
+  So I need a function similar to <span style="color: red">compileToAngular(angularString)</span>.
+</p>
+
+<h3>Objective</h3>
+
+<p>
+  <b>
+    Implement a function like that, such that I could input any string in the textarea below, click compile, and it would render
+    the Angular correctly.
+  </b>
+</p>
+
+<textarea #template
+          id=""
+          cols="30"
+          rows="10"></textarea>
+<br>
+<button style="padding: 30px; background: orange; font-size: 18px" (click)="compileStringToAngularAndInsert(template.value)">
+  Compile
+</button>
+
+<div>
+  The compiled Angular should appear here:
+</div>
+<div *dynamicComponent="content"></div>
